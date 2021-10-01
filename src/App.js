@@ -17,7 +17,7 @@ function App() {
           <Route path="/shop">
             <Shope />
           </Route>
-          <Route path="/viewCart">
+          <Route path="/view-cart">
             <ViewCart />
           </Route>
           <Route path="*">

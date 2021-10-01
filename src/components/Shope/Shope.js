@@ -73,7 +73,7 @@ const Shope = () => {
         <div>
             <div className="search-box">
                 <input onChange={searchHandler} type="text" placeholder="Type here to search" />
-                <span className="cart-icon">&nbsp;&nbsp;<NavLink to="/ViewCart">{shoppingCart} {cart.length}</NavLink></span>
+                <span className="cart-icon">&nbsp;&nbsp;<NavLink to="/view-cart">{shoppingCart} {cart.length}</NavLink></span>
             </div>
             <div className="shope-container">
                 <div className="product-container">
