@@ -1,9 +1,8 @@
-import { clearTheCart } from '../../utilities/fakedb';
+import { clearTheCart, deleteFromDb } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import CartProductList from '../CartProductList/CartProductList';
 import useCart from '../Hooks/useCart';
 import useProducts from '../Hooks/useProduct';
-import Product from '../Product/Product';
 
 const ViewCart = () => {
     const [products, setProducts] = useProducts();
@@ -12,12 +11,17 @@ const ViewCart = () => {
         clearTheCart();
         setCart([]);
     }
+    const cancelOrderHandler = (key) => {
+        const updateCart = cart.filter(product => product.key !== key);
+        setCart(updateCart);
+        deleteFromDb(key);
+    }
     return (
         <div>
             <div className="shope-container">
                 <div className="product-container">
                     {
-                        cart.map(selectedProduct => <CartProductList key={selectedProduct.key} cart={selectedProduct} />)
+                        cart.map(selectedProduct => <CartProductList key={selectedProduct.key} cancelOrderHandler={cancelOrderHandler} cart={selectedProduct} />)
                     }
                 </div>
                 <div>

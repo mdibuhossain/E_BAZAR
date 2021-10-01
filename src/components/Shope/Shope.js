@@ -5,6 +5,7 @@ import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import { addToDb, clearTheCart, getStoredCart } from '../../utilities/fakedb';
 import './Shope.css';
+import { NavLink } from 'react-router-dom';
 
 const shoppingCart = <FontAwesomeIcon icon={faShoppingCart} />
 
@@ -72,7 +73,7 @@ const Shope = () => {
         <div>
             <div className="search-box">
                 <input onChange={searchHandler} type="text" placeholder="Type here to search" />
-                <span className="cart-icon">&nbsp;&nbsp;{shoppingCart} {cart.length}</span>
+                <span className="cart-icon">&nbsp;&nbsp;<NavLink to="/ViewCart">{shoppingCart} {cart.length}</NavLink></span>
             </div>
             <div className="shope-container">
                 <div className="product-container">

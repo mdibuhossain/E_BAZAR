@@ -13,7 +13,8 @@
     padding: 8px 12px;
     margin: 10px 0;
 }
-.cart-icon{
+.cart-icon *{
+    text-decoration: none;
     font-size: 18px;
     color: white;
 }
