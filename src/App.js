@@ -1,5 +1,6 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
+import CompleteOrder from './components/CompleteOrder/CompleteOrder';
 import Header from './components/Header/Header';
 import Notfound from './components/NotFound/Notfound';
 import Shope from './components/Shope/Shope';
@@ -19,6 +20,9 @@ function App() {
           </Route>
           <Route path="/view-cart">
             <ViewCart />
+          </Route>
+          <Route path="/complete-order">
+            <CompleteOrder />
           </Route>
           <Route path="*">
             <Notfound />

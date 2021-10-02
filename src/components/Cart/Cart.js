@@ -2,7 +2,9 @@ import React from 'react';
 import './Cart.css';
 
 const Cart = (props) => {
-    const { cart, purchaseHandler } = props;
+    const { cart } = props;
+    const CartButton = props.children;
+    console.log(CartButton);
     let totalOrder = 0;
     let totalPrice = 0;
     let shipping = 0;
@@ -52,7 +54,7 @@ const Cart = (props) => {
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colSpan="6"><button onClick={purchaseHandler} className="regularBtn">Purchase</button></td>
+                        <td colSpan="6">{CartButton}</td>
                     </tr>
                 </tfoot>
             </table>

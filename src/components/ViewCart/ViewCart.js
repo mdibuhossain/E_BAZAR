@@ -1,3 +1,4 @@
+import { useHistory } from 'react-router';
 import { clearTheCart, deleteFromDb } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import CartProductList from '../CartProductList/CartProductList';
@@ -7,7 +8,10 @@ import useProducts from '../Hooks/useProduct';
 const ViewCart = () => {
     const [products, setProducts] = useProducts();
     const [cart, setCart] = useCart(products);
+    const history = useHistory();
     const purchaseHandler = () => {
+        if (cart.length)
+            history.push("/complete-order");
         clearTheCart();
         setCart([]);
     }
@@ -25,7 +29,9 @@ const ViewCart = () => {
                     }
                 </div>
                 <div>
-                    <Cart cart={cart} purchaseHandler={purchaseHandler} />
+                    <Cart cart={cart}>
+                        <button onClick={purchaseHandler} className="regularBtn">Purchase</button>
+                    </Cart>
                 </div>
             </div>
         </div>

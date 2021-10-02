@@ -5,7 +5,7 @@ import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import { addToDb, clearTheCart, getStoredCart } from '../../utilities/fakedb';
 import './Shope.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 
 const shoppingCart = <FontAwesomeIcon icon={faShoppingCart} />
 
@@ -63,10 +63,12 @@ const Shope = () => {
         setItemPrice(product.price);
         addToDb(product.key);
     }
+    const history = useHistory();
 
-    const purchaseHandler = () => {
-        clearTheCart();
-        setCart([]);
+    const visitReviewHandler = () => {
+        history.push("/view-cart");
+        // clearTheCart();
+        // setCart([]);
     }
 
     return (
@@ -86,7 +88,9 @@ const Shope = () => {
                     }
                 </div>
                 <div>
-                    <Cart purchaseHandler={purchaseHandler} cart={cart}></Cart>
+                    <Cart cart={cart}>
+                        <button onClick={visitReviewHandler} className="regularBtn">Review Order</button>
+                    </Cart>
                 </div>
             </div>
         </div>
