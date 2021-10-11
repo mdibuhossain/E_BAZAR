@@ -12,7 +12,7 @@ const Cart = (props) => {
         // console.log(product.price, product.quantity);
         // if (!product.quantity)
         //     product.quantity = 1;
-        shipping = Math.max(shipping, product.shipping);
+        shipping = Math.max(shipping, product.quantity && product.shipping);
         totalPrice += product.price * product.quantity;
         totalOrder += product.quantity;
     }
