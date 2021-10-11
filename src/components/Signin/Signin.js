@@ -12,7 +12,7 @@ const Signin = () => {
             <button className="btn-regular">Signin</button>
             <div className="social-signin">
                 <button onClick={signWithGoogle}>With Google</button>
-                <button>With Facebook</button>
+                <button>With Facebook</button> 
             </div>
         </div>
     );
