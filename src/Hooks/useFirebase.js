@@ -12,14 +12,14 @@ const useFirebase = () => {
     const auth = getAuth();
 
     const signWithGoogle = (e) => {
-        e.target.preventDefault();
+        e.preventDefault();
         const googleProvider = new GoogleAuthProvider();
         signInWithPopup(auth, googleProvider)
             .then(result => setUser(result.user)).catch(error => setError(error.message));
     }
 
     const logOut = (e) => {
-        e.target.preventDefault();
+        e.preventDefault();
         signOut(auth)
             .then(() => { setUser({}) }).catch(error => { setError(error.message) });
     }
