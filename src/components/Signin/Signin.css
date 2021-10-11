@@ -1,0 +1,31 @@
+.login-form{
+    margin: auto;
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.login-form input,.login-form button{
+    margin: 3px 10px;
+    padding: 5px 8px;
+    border: 1px solid gray;
+    outline: none;
+    border-radius: 5px;
+}
+.social-signin{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.social-signin button{
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+.social-signin :first-child{
+    background-color: rgb(211, 41, 41);
+    color: white;
+}
+.social-signin :last-child{
+    background-color: rgb(249, 70, 255);
+    color: white;
+}

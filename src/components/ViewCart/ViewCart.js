@@ -4,8 +4,8 @@ import { useHistory } from 'react-router';
 import { addToDb, clearTheCart, deleteFromDb, getStoredCart, updateDb } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import CartProductList from '../CartProductList/CartProductList';
-import useCart from '../Hooks/useCart';
-import useProducts from '../Hooks/useProduct';
+import useCart from '../../Hooks/useCart';
+import useProducts from '../../Hooks/useProduct';
 
 const ViewCart = () => {
     const [products, setProducts] = useProducts();
@@ -13,7 +13,7 @@ const ViewCart = () => {
     const history = useHistory();
 
     useEffect(() => {
-        console.log('qnt');
+        // console.log('qnt');
     }, [cart])
 
     const purchaseHandler = () => {
@@ -35,7 +35,7 @@ const ViewCart = () => {
             if (product.key === key) {
                 ++storedCart[key];
                 product.quantity = storedCart[key];
-                console.log(product);
+                // console.log(product);
             }
         }
         setCart(tmpCart);
@@ -46,10 +46,10 @@ const ViewCart = () => {
         const storedCart = getStoredCart();
         const tmpCart = [...cart];
         for (const product of tmpCart) {
-            if (product.key === key) {                
+            if (product.key === key) {
                 storedCart[key] && --storedCart[key];
                 product.quantity = storedCart[key];
-                console.log(product);
+                // console.log(product);
             }
         }
         setCart(tmpCart);

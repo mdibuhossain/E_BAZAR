@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
-import { addToDb, clearTheCart, getStoredCart } from '../../utilities/fakedb';
+import { addToDb, getStoredCart } from '../../utilities/fakedb';
 import './Shope.css';
 import { NavLink, useHistory } from 'react-router-dom';
 
