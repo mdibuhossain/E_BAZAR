@@ -6,10 +6,12 @@ import Product from '../Product/Product';
 import { addToDb, getStoredCart } from '../../utilities/fakedb';
 import './Shope.css';
 import { NavLink, useHistory } from 'react-router-dom';
+import useAuth from '../../Hooks/useAuth';
 
 const shoppingCart = <FontAwesomeIcon icon={faShoppingCart} />
 
 const Shope = () => {
+    const { user } = useAuth();
     const [products, setProducts] = useState([]);
     const [searchProducts, setSearchProducts] = useState([]);
     const [cart, setCart] = useState([]);
@@ -53,7 +55,6 @@ const Shope = () => {
         const quantityCheck = cart.find(c => c.key === product.key);
         if (quantityCheck) {
             product.quantity += 1;
-            console.log(products);
         }
         else {
             product.quantity = 1;
@@ -87,11 +88,14 @@ const Shope = () => {
                         </Product>)
                     }
                 </div>
-                <div>
-                    <Cart cart={cart}>
-                        <button onClick={visitReviewHandler} className="regularBtn">Review Order</button>
-                    </Cart>
-                </div>
+                {
+                    user?.uid ?
+                        <div>
+                            <Cart cart={cart}>
+                                <button onClick={visitReviewHandler} className="regularBtn">Review Order</button>
+                            </Cart>
+                        </div> : null
+                }
             </div>
         </div>
     );

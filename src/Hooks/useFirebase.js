@@ -1,6 +1,7 @@
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from 'firebase/auth';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import initAuth from '../AuthFirebase/initAuth';
 
 initAuth();
@@ -26,8 +27,11 @@ const useFirebase = () => {
 
     useEffect(() => {
         onAuthStateChanged(auth, user => {
-            if (user)
+            if (user) {
                 setUser(user);
+                // if (location.pathname === '/login' || location.pathname === '/logout')
+                //     history.push('/');
+            }
         })
     }, [])
 

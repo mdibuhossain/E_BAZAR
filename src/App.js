@@ -7,6 +7,7 @@ import Shope from './components/Shope/Shope';
 import Signin from './components/Signin/Signin';
 import ViewCart from './components/ViewCart/ViewCart';
 import AuthProvider from './Context/AuthProvider';
+import AuthRoute from './routes/AuthRoute';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
               <Shope />
             </Route>
             <Route path="/view-cart">
-              <ViewCart />
+              <AuthRoute><ViewCart /></AuthRoute>
             </Route>
             <Route path="/complete-order">
               <CompleteOrder />
